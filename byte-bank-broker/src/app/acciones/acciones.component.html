@@ -1,0 +1,19 @@
+<po-page-default p-title="Bolsa de Valores">
+  <div class="po-row">
+    <div class="po-xl-8 po-lg-8 po-md-8 po-sm-8">
+      <po-input p-label="Acciones" [formControl]="accionesInput"></po-input>
+    </div>
+  </div>
+  
+  <div class="td-page-wrapper" *ngIf="acciones$ | async as acciones ; else elseBlock">
+    <div class="po-row">
+        <div class="po-md-4" *ngFor="let accion of acciones">
+          <app-card-acciones [accion]= "accion"></app-card-acciones>
+        </div>
+    </div>
+  </div>
+  <ng-template #elseBlock><p>Sin datos</p> </ng-template>
+  
+</po-page-default>
+
+
